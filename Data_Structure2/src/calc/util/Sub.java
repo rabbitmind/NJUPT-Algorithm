@@ -35,8 +35,16 @@ public class Sub {
         for (int i = 0; i < 100; i++) {                 //计算res,低位小于0，低位加10。高位减1
             res[i] = e[i] - f[i];
             if (res[i] < 0) {
-                res[i - 1] -= 1;
                 res[i] += 10;
+                for (int j=1;j<i;j++){
+                    if(res[i - j]!=0){
+                        res[i - j]-=1;
+                        for(int t=1;t<=j-1;t++){
+                            res[i - t]+=9;
+                        }
+                        break;
+                    }
+                }
             }
         }
         for (int i = 0; i < 100; i++) {        //对返回的字符串赋值
@@ -50,9 +58,5 @@ public class Sub {
         } else {
             return "-" + str;
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(sub("45", "9"));
     }
 }

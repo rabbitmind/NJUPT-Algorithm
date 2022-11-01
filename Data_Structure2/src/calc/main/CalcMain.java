@@ -149,7 +149,11 @@ public class CalcMain extends JFrame implements ActionListener {
             }
             Operate = clickStr;                             //更新操作符
             try {                                                      //写文件
-                FileProcess.writeFile(Operate, true, lastFile);
+                if(Operate.equals("X")){
+                    FileProcess.writeFile("*", true, lastFile);
+                } else {
+                    FileProcess.writeFile(Operate, true, lastFile);
+                }
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -200,11 +204,11 @@ public class CalcMain extends JFrame implements ActionListener {
             this.Input_Text.setText(strResult);              //将result转换成字符并输出结果到输入框
             this.outputText.setText(strResult);       //将result转换成字符并输出结果到输出框
             try {                                                      //写文件
-                FileProcess.writeFile("=" + strResult + "\n", true, lastFile);
+                FileProcess.writeFile("==" + strResult + "\n", true, lastFile);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
-            Operate = "=";                         //操作符置null
+            Operate = "=";                         //操作符置==
         }
         //输出框
         if (clickStr == "=") {

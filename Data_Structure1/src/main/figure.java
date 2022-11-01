@@ -11,15 +11,15 @@ public class figure {
 
     //max变量
     static int max = 0;         //最大值变量
-    static int numTempArrMax =1;                       //最短路径存储数组临时变量
+    static int numTempArrMax =1;                       //最长路径存储数组临时变量
     static int[][] tempArrMax = new int[100][100];     //最长路径存储数组临时变量
 
     //min变量
     static int min = Integer.MAX_VALUE;         //min初始化为int最大值:2147483647
-    static int numTempArr =1;                       //最短路径存储数组临时变量
+    static int numTempArr =1;                       //最短路径存储数组下标临时变量
     static int[][] tempArr = new int[100][100];     //定义边数组edge
 
-    //最短路径条数
+    //简单路径条数
     static int number =0;
 
     //实例化Scanner类，对象input,获取按字节输入

@@ -19,10 +19,20 @@ public class Add {
         }
         for (int i = 0; i < 100; i++) {             //计算res,大于10,低位-10，高位加1
             res[i] = e[i] + f[i];
-            if (res[i] > 10) {
+
+            if (res[i] >=10) {
                 res[i] -= 10;
                 res[i - 1] += 1;
+                for(int j=1;j<i;j++){
+                    if(res[i - j]==10){
+                        res[i-j]-=10;
+                        res[i-j-1]+=1;
+                        break;
+                    }
+                }
+
             }
+
         }
         for (int i = 0; i < 100; i++) {         //对返回字符串赋值
             if (res[i] != 0) flag = true;
@@ -31,5 +41,10 @@ public class Add {
             }
         }
         return str.toString();                             //返回结果
+    }
+
+    public static void main(String[] args) {
+        String res= add("986452536767867867897895345782345678","6572156212456123467234671235675631267123");
+        System.out.println(res);
     }
 }
